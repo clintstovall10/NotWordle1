@@ -1,9 +1,18 @@
 package nextgame;
 
+import java.io.*;
+
 public class Driver {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader (new FileReader ("notWordleHighscore.txt"));
+		
+		
+		
+		
+		
+		
 
 	}
 
