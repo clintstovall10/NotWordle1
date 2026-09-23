@@ -17,6 +17,11 @@ public class Driver {
 		NextGame nextgame = new NextGame();
 		
 		 nextgame.randomize();
+		 
+		 System.out.println("Enter numbers");
+		 
+		 
+		 nextgame.getUserNumbers();
 		
 		
 		

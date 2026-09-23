@@ -1,8 +1,11 @@
 package nextgame;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class NextGame {
+	
+	Scanner scan = new Scanner(System.in);
 	
 	//Get Random numbers
 	
@@ -11,42 +14,65 @@ public class NextGame {
 		Random rand = new Random();
 		
 		int [] numbers = {1, 2 ,3 , 4 , 5};
-		int num1;
 		int index;
+		int randomIndexOfNumbers;
 		int[]numbersRandom = new int [5];
-		int index2;
-		int index3;
-		boolean one = false;
-		int attempts;
+		int i;
+		int j;
+		boolean attempts = true;
 		
 		
-		//puts random numbers into new array
-		for ( attempts = 0; attempts < 30; attempts++ ) {
+		
+		
+		while (attempts) {
+			
+			attempts = false;
+			
+			//generates a random array
 			
 			for (index = 0; index < numbersRandom.length; index++) {
-				num1 = rand.nextInt(5);
-				numbersRandom[index] = numbers[num1];
+				randomIndexOfNumbers = rand.nextInt(5);
+				numbersRandom[index] = numbers[randomIndexOfNumbers];
 			}
 		
-			//find duplicate numbers, if found re run the randomize
-			for (index2 = 0; index2 < numbersRandom.length; index2++) {
-				for (index3 = index2 +1; index3 <numbersRandom.length -1 ; index3++) {
-					
-					if (numbersRandom[index2] == numbersRandom[index3]) {
-						one = true;
-						
-					}
-					
-				}
-				System.out.println(numbersRandom[index2]);
-			}
+			//checks the array if duplicates are found, if found keep running
 			
+			for (i = 0; i < numbersRandom.length; i++) {
+				for (j = i+1; j <numbersRandom.length ; j++) {
+					
+					if (numbersRandom[i] == numbersRandom[j]) {
+							attempts = true;
+						}
+					}
+				}
+			}
+		
+			//just prints off the completed array with not duplicates, outside of while loop
+		
+		for (int indexOfNumbersRandom = 0; indexOfNumbersRandom < numbersRandom.length; indexOfNumbersRandom++) {
+			System.out.println(numbersRandom[indexOfNumbersRandom]);
 		}
+		
 		
 		return numbersRandom;
 		
 	}
 	
+	public int[] getUserNumbers () {
+		int index;
+		int[] userNumbers = new int [5];
+		
+		for (index = 0; index < userNumbers.length; index++) {
+			
+			int nums = scan.nextInt();
+			
+			userNumbers[index] = nums;
+			
+			
+			
+		}
+		return userNumbers;
+	}
 	
 
 	
