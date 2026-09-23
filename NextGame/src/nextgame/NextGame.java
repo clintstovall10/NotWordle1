@@ -15,22 +15,35 @@ public class NextGame {
 		int index;
 		int[]numbersRandom = new int [5];
 		int index2;
+		int index3;
+		boolean one = false;
+		int attempts;
+		
 		
 		//puts random numbers into new array
-		
-		for ( index = 0; index < 30; index++ ) {
-			num1 = rand.nextInt(5);
+		for ( attempts = 0; attempts < 30; attempts++ ) {
 			
-			numbersRandom[index] = numbers[num1];
+			for (index = 0; index < numbersRandom.length; index++) {
+				num1 = rand.nextInt(5);
+				numbersRandom[index] = numbers[num1];
+			}
 		
-		}
-		for (index2 = 0; index2 < numbersRandom.length; index2++) {
 			//find duplicate numbers, if found re run the randomize
+			for (index2 = 0; index2 < numbersRandom.length; index2++) {
+				for (index3 = index2 +1; index3 <numbersRandom.length -1 ; index3++) {
+					
+					if (numbersRandom[index2] == numbersRandom[index3]) {
+						one = true;
+						
+					}
+					
+				}
+				System.out.println(numbersRandom[index2]);
+			}
 			
 		}
 		
-		
-		return numbers;
+		return numbersRandom;
 		
 	}
 	

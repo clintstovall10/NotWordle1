@@ -16,7 +16,8 @@ public class Driver {
 		
 		NextGame nextgame = new NextGame();
 		
-		nextgame.randomize();
+		 nextgame.randomize();
+		
 		
 		
 		
