@@ -6,12 +6,13 @@ import java.util.Scanner;
 public class NextGame {
 	
 	Scanner scan = new Scanner(System.in);
+	Random rand = new Random();
 	
 	//Get Random numbers
 	
 	public int[] randomize () {
 		
-		Random rand = new Random();
+		
 		
 		int [] numbers = {1, 2 ,3 , 4 , 5};
 		int index;
@@ -48,11 +49,9 @@ public class NextGame {
 			}
 		
 			//just prints off the completed array with not duplicates, outside of while loop
-		
-		for (int indexOfNumbersRandom = 0; indexOfNumbersRandom < numbersRandom.length; indexOfNumbersRandom++) {
-			System.out.println(numbersRandom[indexOfNumbersRandom]);
-		}
-		
+			for (int index5 = 0; index5 < numbers.length; index5++) {
+				System.out.println(numbersRandom[index5]);
+			}
 		
 		return numbersRandom;
 		
@@ -62,21 +61,24 @@ public class NextGame {
 		int index;
 		int[] userNumbers = new int [5];
 		
-		for (index = 0; index < userNumbers.length; index++) {
+			for (index = 0; index < userNumbers.length; index++) {
+				int nums = scan.nextInt();
+					if (nums < 6 ) {
+						userNumbers[index] = nums;
+				}
+			}
 			
-			int nums = scan.nextInt();
-			
-			userNumbers[index] = nums;
-			
-			
-			
-		}
 		return userNumbers;
 	}
 	
-
+	public static boolean compareUserInputToSequence (int [] array1 , int [] array2) {
+			
+				if (array1[0] == array2[0] && array1[1] == array2[1] && array1[2] == array2[2] && array1[3] == array2[3] && array1[4] == array2[4]) {
+					System.out.print("You have successfully found the correct sequence of numbers!");
+					return true;
+				}
+				
+				return false;
+		}
 	
-	
-	
-	
-}
+}	

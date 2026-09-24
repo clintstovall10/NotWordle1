@@ -10,19 +10,23 @@ public class Driver {
 		BufferedReader br = new BufferedReader (new FileReader ("notWordleHighscore.txt"));
 		Scanner scan = new Scanner (System.in);
 		String name;
+		boolean gameAttempts = true;
 		
-		System.out.println("What is Your Name");
+		System.out.println("What is Your Name?");
 		name = scan.nextLine();
 		
 		NextGame nextgame = new NextGame();
 		
-		 nextgame.randomize();
+		int[] array = nextgame.randomize();
 		 
-		 System.out.println("Enter numbers");
+		 System.out.println("Enter numbers:");
 		 
-		 
-		 nextgame.getUserNumbers();
-		
+		 while (gameAttempts) {
+			 
+			 int [] array2 = nextgame.getUserNumbers();
+			 nextgame.compareUserInputToSequence(array, array2);
+			 
+		 }
 		
 		
 		
