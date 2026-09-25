@@ -11,9 +11,6 @@ public class NextGame {
 	//Get Random numbers
 	
 	public int[] randomize () {
-		
-		
-		
 		int [] numbers = {1, 2 ,3 , 4 , 5};
 		int index;
 		int randomIndexOfNumbers;
@@ -21,9 +18,6 @@ public class NextGame {
 		int i;
 		int j;
 		boolean attempts = true;
-		
-		
-		
 		
 		while (attempts) {
 			
@@ -49,9 +43,9 @@ public class NextGame {
 			}
 		
 			//just prints off the completed array with not duplicates, outside of while loop
-			for (int index5 = 0; index5 < numbers.length; index5++) {
-				System.out.println(numbersRandom[index5]);
-			}
+			//for (int index5 = 0; index5 < numbers.length; index5++) {
+				//System.out.println(numbersRandom[index5]);
+			//}
 		
 		return numbersRandom;
 		
@@ -59,26 +53,36 @@ public class NextGame {
 	
 	public int[] getUserNumbers () {
 		int index;
-		int[] userNumbers = new int [5];
+		String line = scan.nextLine();
+		String[] userInput = line.split(" ");
+		int num;
+		int[] userNumbers = new int[5];
 		
-			for (index = 0; index < userNumbers.length; index++) {
-				int nums = scan.nextInt();
-					if (nums < 6 ) {
-						userNumbers[index] = nums;
+		for (index = 0; index < userNumbers.length; index++) {
+				num = Integer.parseInt(userInput[index]);
+					if ( num < 6 ) {
+						userNumbers[index] = num;
 				}
 			}
-			
 		return userNumbers;
 	}
 	
 	public static boolean compareUserInputToSequence (int [] array1 , int [] array2) {
-			
-				if (array1[0] == array2[0] && array1[1] == array2[1] && array1[2] == array2[2] && array1[3] == array2[3] && array1[4] == array2[4]) {
-					System.out.print("You have successfully found the correct sequence of numbers!");
-					return true;
-				}
+			int numbersCorrect = 0;
+			for (int i = 0; i <array1.length; i++) {
+				if (array1[i] == array2[i]) {
+					numbersCorrect ++;
+				}	
+			}
 				
-				return false;
-		}
+			if ( numbersCorrect == 5 ) {
+				return true;
+			}
+			System.out.println("You have " + numbersCorrect + " numbers correct");
+			return false;
+	}
+	
+	
+	
 	
 }	
